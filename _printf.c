@@ -38,6 +38,8 @@ int _printf(const char *format, ...)
 				printed = print_integer(value);
 				count += printed;
 			}
+			else
+				break;
 		}
 		else /*Case: Regular character, not a conversion specifier*/
 		{
@@ -56,6 +58,28 @@ int _printf(const char *format, ...)
 	count += buff_ind;
 
 	va_end(args); 
+	_printf("%");
 
 	return count; 
 }
+/*
+int main (void){
+
+_printf=("%"); //مش هيطبع حاجة
+printf=("%%"); // هيطبع ٪
+printf=("%%cab");  \\هيطبع %cab
+printf=("%k"); // print %k
+printf=("nothing means NULL"); \\ print nothing means (null)
+Printf(NULL); segmentation fault 
+X = Printf(NULL);
+Printf("%d\n", X);
+المفروض اكس يبقي بسالب واحد
+ نسيت احط "%s" قبل جملة نثنج مينز نل
+
+
+
+	return 0 ;
+}
+
+
+*/
