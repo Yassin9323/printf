@@ -55,7 +55,7 @@ void print_string (void)
     /*Handle the case of negative numbers*/
     if (value < 0)
     {
-        putchar('-');
+        _putchar('-');
         printed++;
         value = -value;
     }
@@ -75,7 +75,4 @@ void print_string (void)
     }
 
     return printed;
-
-
-
 }

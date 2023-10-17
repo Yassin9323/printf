@@ -14,24 +14,21 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	while (*format) 
+	while (*format)
 	{
-		if (*format == '%') /*Check for the start of a conversion specifier*/
+		if (*format != '%')
+			_putchar(*format);
+		else
 		{
-			format++; /*Move to the next character after '%'*/
-
-			if (*format == '%') /*Case: '%%' prints a single '%'*/
-			{
+			format++;
+			if (*format == '\0')
+				break;
+			if (*format == '%')/*Case: '%%' prints a single '%'*/
 				print_format_sign();
-			}
-			else if (*format == 'c') /*Case: '%c' prints a character*/
-			{
+			else if (*format == 'c')
 				print_char();
-			}
-			else if (*format == 's') /*Case: '%s' prints a string*/
-			{
+			else if (*format == 's')
 				print_string();
-			}
 			else if (*format == 'd' || *format == 'i') /*Case: '%d' or '%i' prints an integer*/
 			{
 				int value = va_arg(args, int);
@@ -41,16 +38,16 @@ int _printf(const char *format, ...)
 			else
 				break;
 		}
-		else /*Case: Regular character, not a conversion specifier*/
-		{
-			buffer[buff_ind++] = *format;
-			if (buff_ind == BUFF_SIZE)
-			{
-				print_buffer(buffer, &buff_ind);
-				count += buff_ind;
-			}
-		}
-
+		/*else
+		 * {
+		 *	buffer[buff_ind++] = *format;
+		 *	if (buff_ind == BUFF_SIZE)
+		 *	{
+		 *		print_buffer(buffer, &buff_ind);
+		 *		count += buff_ind;
+		 *	}
+		 * }
+		 */
 		format++; 
 	}
 
@@ -58,28 +55,6 @@ int _printf(const char *format, ...)
 	count += buff_ind;
 
 	va_end(args); 
-	_printf("%");
 
 	return count; 
 }
-/*
-int main (void){
-
-_printf=("%"); //مش هيطبع حاجة
-printf=("%%"); // هيطبع ٪
-printf=("%%cab");  \\هيطبع %cab
-printf=("%k"); // print %k
-printf=("nothing means NULL"); \\ print nothing means (null)
-Printf(NULL); segmentation fault 
-X = Printf(NULL);
-Printf("%d\n", X);
-المفروض اكس يبقي بسالب واحد
- نسيت احط "%s" قبل جملة نثنج مينز نل
-
-
-
-	return 0 ;
-}
-
-
-*/

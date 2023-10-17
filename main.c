@@ -14,14 +14,11 @@ int main(void)
     _printf("Let's try to printf a simple sentence.\n");
     printf("Let's try to printf a simple sentence.\n");
 
-    _printf("%");
-    /*printf("%");*/
+    _printf("%\n");
     
     _printf("%%\n");
-    printf("%%\n");
-
-    _printf("%k\n");
-    printf("%k\n");
+   
+    _printf("%8\n");
 
     _printf("Nothing means NULL\n");
     printf("Nothing means NULL\n");
@@ -36,6 +33,19 @@ int main(void)
      * x = printf(NULL);
      * printf("%d\n", x);
      */
+    
+    _printf("Character:[%c]\n", 'H');
+    printf("Character:[%c]\n", 'H');
+
+    _printf("String:[%s]\n", "I am a string !");
+    printf("String:[%s]\n", "I am a string !");
+
+    _printf("Percent:[%%]\n");
+
+    _printf("Leo\n");
+    _printf("%c\n", 'f');
+    _printf("%s\n", "String");
+    _printf("%%\n");
 
 
     return (0);
