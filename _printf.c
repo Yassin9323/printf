@@ -23,6 +23,7 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == '\0')
 				break;
+
 			if (*format == '%')/*Case: '%%' prints a single '%'*/
 				print_format_sign();
 			else if (*format == 'c')
@@ -35,8 +36,6 @@ int _printf(const char *format, ...)
 				printed = print_integer(value);
 				count += printed;
 			}
-			else
-				break;
 		}
 		/*else
 		 * {
