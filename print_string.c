@@ -1,7 +1,9 @@
+#include "main.h"
 
-void print_string (void)
+void print_string(void)
 {
             {
+		int count = 0;
                 char *str = va_arg(args, char *); // Fetch the next argument as char*
                 while (*str) // Iterate over each character in the string
                 {

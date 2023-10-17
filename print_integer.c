@@ -1,6 +1,6 @@
-  int print_integer(int value)
-                  
-                 
+#include "main.h"
+
+int print_integer(int value)
 {
     char buffer[32]; // Buffer to store the string representation
     int printed = 0; // Counter for the number of characters printed

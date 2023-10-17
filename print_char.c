@@ -1,6 +1,9 @@
-void print_char (void)
+#include "main.h"
+
+void print_char(void)
 {
             {
+		int count = 0;
                 int ch = va_arg(args, int); // Fetch the next argument as int
                 buffer[buff_ind++] = ch;
                 if (buff_ind == BUFF_SIZE)

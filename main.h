@@ -1,16 +1,21 @@
-#ifndef _PRINTF_H
-#define _PRINTF_H
+#ifndef _MAIN_H
+#define _MAIN_H
+#define BUFF_SIZE 1024
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdrag.h>
+#include <stdarg.h>
 #include <string.h>
+#include <unistd.h>
+
+int _putchar(char c);
 //step 1
 int _printf(const char *format, ...);
 
-//step 2 
-print_char(va_list ap , params_t * params );
-print_percent(va_list ap , params_t * params );
-print_string(va_list ap , params_t * params );
+//step 2: Specifiers c, s, and handling %
+void print_char(void);
+int print_integer(int value);
+void print_format_sign(void);
+void print_string(void);
 
 #endif

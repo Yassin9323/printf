@@ -1,5 +1,6 @@
 #include "main.h"
 
+void print_buffer(char buffer[], int *buff_ind);
 /**
  *
  *
@@ -8,10 +9,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int ind;
-	int c;
-	char *str;
-	int len = 0;
+	int ind = 0;
 
 	if (format == NULL)
 		return (-1);
@@ -19,27 +17,34 @@ int _printf(const char *format, ...)
 	for (ind = 0; format[ind]; ind++)
 	{
 		if (format[ind] != '%')
-			putchar(format);
+			putchar(format[ind]);
 		else
 		{
 			format++;
 			if (format[ind] == '\0')
 				break;
 			else if (format[ind] == '%')
-				putchar[format[ind]];
+				print_format_sign();
 			else if (format[ind] == 'c')
-				c = va_arg(args, int);
+				print_char();
 			else if (format[ind] == 's')
-			{
-				str = va_arg(args, char*);
-				while (str[len] != '\0')
-					len++;
-				putchar(str);
-				putchar(len);
-				c += len;
-			}
+				print_string();
 		}
 	}
 	va_end(args);
 	return (0);
 }
+
+void print_buffer(char buffer[], int *buff_ind)
+{
+    if (*buff_ind > 0)
+    {
+        for (int i = 0; i < *buff_ind; i++)
+        {
+            putchar(buffer[i]);
+        }
+    }
+
+    *buff_ind = 0;
+}
+~
