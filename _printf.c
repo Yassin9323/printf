@@ -7,8 +7,8 @@ int count;
 
 int _printf(const char *format, ...)
 {
-	int printed = 0;   /*Number of characters printed by each conversion specifier*/
-	
+	int printed = 0;/*N of chars printed by each conversion specifier*/
+
 	if (format == NULL)
 		return (-1);
 
@@ -30,9 +30,10 @@ int _printf(const char *format, ...)
 				print_char();
 			else if (*format == 's')
 				print_string();
-			else if (*format == 'd' || *format == 'i') /*Case: '%d' or '%i' prints an integer*/
+			else if (*format == 'd' || *format == 'i')
 			{
 				int value = va_arg(args, int);
+
 				printed = print_integer(value);
 				count += printed;
 			}
@@ -47,13 +48,13 @@ int _printf(const char *format, ...)
 		 *	}
 		 * }
 		 */
-		format++; 
+		format++;
 	}
 
 	print_buffer(buffer, &buff_ind);
 	count += buff_ind;
 
-	va_end(args); 
+	va_end(args);
 
-	return count; 
+	return (count);
 }

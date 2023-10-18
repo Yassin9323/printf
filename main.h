@@ -12,7 +12,7 @@
 extern va_list args;      /* Declare a variable to hold the list of arguments*/
 extern char buffer[BUFF_SIZE];
 extern int buff_ind;  /*Buffer index*/
-extern int count;     /*Initialize a counter for the number of characters printed*/
+extern int count;     /*A counter for number of chars printed*/
 
 
 int _putchar(char c);
@@ -24,7 +24,7 @@ void print_char(void);
 int print_integer(int value);
 void print_format_sign(void);
 void print_string(void);
-void name (void);
+void name(void);
 
 
 void print_buffer(char buffer[], int *buff_ind);
