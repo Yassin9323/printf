@@ -28,5 +28,6 @@ void name (void);
 
 
 void print_buffer(char buffer[], int *buff_ind);
-
+/*Step 3 */
+void print_binary(unsigned int value);
 #endif
