@@ -16,6 +16,8 @@ typedef struct format
 	int (*f)();
 } convert_match;
 
+
+
 int printf_exclusive_string(va_list val);
 int printf_int(va_list args);
 int printf_dec(va_list args);

@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * _printf - A duplicate of printf
+ * @format: array holding all variadic functions
+ * Return: an integer
+ */
 int _printf(const char * const format, ...)
 {
 	convert_match m[] = {
