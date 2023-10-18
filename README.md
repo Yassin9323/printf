@@ -1,1 +1,1 @@
-Team GOT for Printf Task
+Team GOT for Printf project
