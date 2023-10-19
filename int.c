@@ -1,4 +1,4 @@
-#include "header.h"
+#include "main.h"
 
 void get_int(int num)
 {
