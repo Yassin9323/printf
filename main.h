@@ -9,5 +9,6 @@
 int _putchar(char c);
 int _printf(const char *format, ...);
 int putss(char *s);
+void get_int(int num);
 
 #endif
