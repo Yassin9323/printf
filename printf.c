@@ -1,43 +1,45 @@
 #include "main.h"
 
 /**
- * _printf - A duplicate of printf
- * @format: array holding all variadic functions
+ * _printf - A custom printf function
+ * @format: An array holding all variadic functions
  * Return: an integer
  */
-int _printf(const char * const format, ...)
+int _printf(const char *format, ...)
 {
-	convert_match m[] = {
-		{"%s", printf_string},      {"%c", printf_char},
-		{"%%", printf_37},          {"%i", printf_int},
-         {"%d", printf_dec}
-	};
+	unsigned int i;
+	unsigned int count = 0;
+	unsigned int str_count;
 
 	va_list args;
-	int i = 0, j, len = 0;
 
-	va_start(args, format);
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	if (format == NULL)
 		return (-1);
+	va_start(args, format);
 
-Here:
-	while (format[i] != '\0')
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		j = 13;
-		while (j >= 0)
+		if (format[i] != '%')
+			_putchar(format[i]);
+		
+		else if (format[i + 1] == 'c')
 		{
-			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
-			{
-				len += m[j].f(args);
-				i = i + 2;
-				goto Here;
-			}
-			j--;
+			_putchar(va_arg(args, int));
+			i++;
 		}
-		_putchar(format[i]);
-		len++;
-		i++;
+		else if (format[i + 1] == 's')
+		{
+			str_count = putss(va_arg(args, char *));
+			i++;
+			count += (str_count - 1);
+		}
+		else if (format[i + 1] == '%')
+			_putchar('%');
+		
+		count += 1;
 	}
+
 	va_end(args);
-	return (len);
+
+	return (count);
 }
