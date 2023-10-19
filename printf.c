@@ -34,10 +34,10 @@ int _printf(const char *format, ...)
 		}
 		else if (format[i + 1] == '%')
 			_putchar('%');
-		else if ((format[h+1] == 'd') || (format[h+1] == 'i'))
+		else if ((format[i+1] == 'd') || (format[i+1] == 'i'))
 		{
 			get_int(va_arg(args, int));
-			h++;
+			i++;
 		}
 		/*count += 1;*/
 		else

@@ -2,7 +2,7 @@
 
 void get_int(int num)
 {
-	int n, r_val;
+	int n;
 
 	if (num == 0)
 		return;
@@ -10,7 +10,7 @@ void get_int(int num)
 	n = num / 10;
 
 	get_int(n);
-	putchr(num%10 + '0');
+	_putchar(num%10 + '0');
 
 	return;
 }
